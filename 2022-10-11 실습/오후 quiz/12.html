@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>0</h1>
+    <button id="plus">+</button>
+    <button id="reset">reset</button>
+    <button id="minus">-</button>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script>
+       //버튼을 누르면 h1이 변하는 이벤트 구현하시면 됨
+       let h = parseInt(document.querySelector("h1").innerText)
+
+       $('#plus').click(function(event){
+        h += 1
+        newh = h
+        $('h1').text(newh)
+       })
+
+       $('#reset').click(function(event){
+        h = 0
+        newh = h
+        $('h1').text(newh)
+        , $('#minus').click(function(event){
+            alert('음수는 지원하지 않음 ㅅㄱ')
+            $('h1').text(0)
+        })
+       })
+
+       $('#minus').click(function(event){
+        if(h>0){
+            h -= 1
+            newh = h
+            $('h1').text(newh)
+            event.stopPropagation
+        } else{
+            alert('음수는 지원 안 함 ㅅㄱ')
+            $('h1').text(0)
+            event.stopPropagation
+        }
+        
+       })
+
+       
+    </script>
+</body>
+</html>
